@@ -1,0 +1,903 @@
+/*
+  SHOWROOM DE VARIACIONES DE BOTONES DE NEÓN
+  Estilos específicos para el showroom y definición de las 8 variantes.
+  Soporte para Botón Primario (Con Relleno) y Botón Secundario (Sin Relleno).
+*/
+
+:root {
+  --electric-blue: #0055FF;
+  --electric-blue-glow: rgba(0, 85, 255, 0.6);
+  --electric-blue-light: #3388FF;
+  --neon-cyan: #00d2ff;
+  --pagurai-magenta: #E72175;
+  --pagurai-magenta-glow: rgba(231, 33, 117, 0.6);
+  --bg-deep: #0a0a0f;
+  --bg-card: rgba(18, 18, 26, 0.75);
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Base resets & layout */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep);
+  color: #f3f4f6;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Options */
+.showroom-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  transition: all 0.5s ease;
+}
+
+/* Background Variant: Solid Black */
+.bg-solid {
+  background-color: #000000;
+}
+
+/* Background Variant: Radial Gradient (Original) */
+.bg-radial {
+  background-color: #0a0a0f;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(0, 85, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(231, 33, 117, 0.08) 0%, transparent 40%);
+}
+
+/* Background Variant: Dot Grid (Original) */
+.bg-dots {
+  background-color: #0a0a0f;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 85, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(rgba(0, 85, 255, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+}
+
+/* Main Container */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* Header design */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  background: linear-gradient(90deg, #ffffff, #0098FF, var(--electric-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: rgba(243, 244, 246, 0.7);
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 1.1rem;
+}
+
+/* Control Bar */
+.control-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.control-bar span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(243, 244, 246, 0.5);
+}
+
+.btn-ctrl {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-ctrl:hover {
+  background: rgba(0, 85, 255, 0.15);
+  border-color: var(--electric-blue);
+}
+
+.btn-ctrl.active {
+  background: var(--electric-blue);
+  border-color: var(--electric-blue);
+  box-shadow: 0 0 12px var(--electric-blue-glow);
+}
+
+/* Showcase Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card design */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  border-color: rgba(0, 85, 255, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 85, 255, 0.05);
+}
+
+.card-header {
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-family: 'Oswald', sans-serif;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-badge {
+  font-size: 0.75rem;
+  background: var(--electric-blue);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 8px rgba(0, 85, 255, 0.4);
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: rgba(243, 244, 246, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Button Demo Stage (Displays primary and secondary side-by-side) */
+.demo-stage {
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.demo-stage-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.demo-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(243, 244, 246, 0.4);
+  margin-top: -10px;
+}
+
+.demo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Code Inspector */
+.code-inspector {
+  position: relative;
+  background: #050508;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.code-tabs {
+  display: flex;
+  background: #0f0f15;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 80px;
+}
+
+.code-tab-selectors {
+  display: flex;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: rgba(243, 244, 246, 0.4);
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.tab-btn:hover {
+  color: #fff;
+}
+
+.tab-btn.active {
+  color: var(--electric-blue-light);
+  border-bottom: 2px solid var(--electric-blue);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.code-type-selector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  padding: 2px;
+  margin: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.type-btn {
+  background: none;
+  border: none;
+  color: rgba(243, 244, 246, 0.5);
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.type-btn.active {
+  background: var(--electric-blue);
+  color: #fff;
+}
+
+.code-content {
+  padding: 15px;
+  font-family: 'Consolas', 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  max-height: 190px;
+  overflow-y: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.btn-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.btn-copy:hover {
+  background: rgba(0, 85, 255, 0.3);
+  color: #fff;
+  border-color: rgba(0, 85, 255, 0.5);
+}
+
+/* ==========================================
+   DEFINITION OF THE 8 NEON BUTTON VARIATIONS
+   ========================================== */
+
+/* Base Button styles that all variants share (matches original CTA size & type) */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  padding: 18px 36px;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+  width: 100%;
+  text-align: center;
+}
+
+/* Base Primary Button (With Fill) */
+.btn-filled {
+  background: var(--electric-blue);
+  color: #ffffff;
+  border: 1.5px solid transparent;
+}
+
+/* Base Secondary Button (Without Fill) */
+.btn-outline {
+  background: #050508; /* Bloqueador de color morado */
+  color: #ffffff;
+  border: 1.5px solid var(--electric-blue);
+}
+
+/* ----------------------------------------------------
+   VARIATION 1: Tubo de Neón Físico (Efecto Adjunto)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-tube.btn-filled {
+  background: linear-gradient(135deg, var(--electric-blue), #0077ff);
+  border-color: #ffffff;
+  text-shadow: 0 0 5px #fff, 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 8px #fff,
+    0 0 20px var(--electric-blue),
+    0 0 40px var(--electric-blue),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn-neon-tube.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: linear-gradient(135deg, var(--electric-blue-light), #0099ff);
+  box-shadow: 
+    0 0 15px #fff,
+    0 0 35px var(--electric-blue),
+    0 0 60px var(--electric-blue),
+    0 0 80px rgba(0, 85, 255, 0.5),
+    inset 0 0 12px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 8px #fff, 0 0 15px var(--electric-blue);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-tube.btn-outline {
+  background: #050508;
+  border-color: #dbebff;
+  text-shadow: 0 0 6px var(--electric-blue);
+  box-shadow: 
+    0 0 6px #fff,
+    0 0 16px var(--electric-blue),
+    0 0 32px var(--electric-blue),
+    inset 0 0 4px #fff,
+    inset 0 0 14px var(--electric-blue);
+}
+
+.btn-neon-tube.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    0 0 10px #fff,
+    0 0 25px var(--electric-blue),
+    0 0 50px var(--electric-blue),
+    0 0 70px rgba(0, 85, 255, 0.6),
+    inset 0 0 6px #fff,
+    inset 0 0 20px var(--electric-blue);
+  text-shadow: 0 0 10px #fff, 0 0 20px var(--electric-blue);
+}
+
+.btn-neon-tube:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 2: Glow Atmosférico Difuso (Ambient Glow)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-ambient.btn-filled {
+  background: var(--electric-blue);
+  border-color: rgba(0, 210, 255, 0.5);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 85, 255, 0.7),
+    0 0 70px rgba(0, 85, 255, 0.35);
+}
+
+.btn-neon-ambient.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: var(--electric-blue-light);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 85, 255, 0.95),
+    0 0 100px rgba(0, 85, 255, 0.55);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-ambient.btn-outline {
+  background: #05050a;
+  border-color: var(--electric-blue);
+  box-shadow: 
+    inset 0 0 14px rgba(0, 85, 255, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 85, 255, 0.4);
+}
+
+.btn-neon-ambient.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.08);
+  border-color: var(--electric-blue-light);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 85, 255, 0.6),
+    0 10px 25px rgba(0, 0, 0, 0.5),
+    0 0 45px rgba(0, 85, 255, 0.65),
+    0 0 100px rgba(0, 85, 255, 0.3);
+}
+
+.btn-neon-ambient:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 3: Neón de Vidrio (Glassmorphic Glow)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-glass.btn-filled {
+  background: rgba(0, 85, 255, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 210, 255, 0.75);
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 85, 255, 0.5);
+}
+
+.btn-neon-glass.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.5);
+  border-color: #ffffff;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 210, 255, 0.8),
+    0 0 70px rgba(0, 85, 255, 0.4);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-glass.btn-outline {
+  background: rgba(5, 5, 10, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 136, 255, 0.55);
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(0, 85, 255, 0.25);
+}
+
+.btn-neon-glass.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.12);
+  border-color: rgba(0, 210, 255, 0.95);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(0, 85, 255, 0.75),
+    0 0 60px rgba(0, 85, 255, 0.35);
+}
+
+.btn-neon-glass:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 4: Neón Pulsante (Breathing Pulse)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-pulse.btn-filled {
+  background: var(--electric-blue);
+  border: 1.5px solid rgba(0, 210, 255, 0.8);
+  animation: neon-breath-filled 3s ease-in-out infinite;
+}
+
+@keyframes neon-breath-filled {
+  0%, 100% {
+    box-shadow: 
+      0 0 12px rgba(0, 85, 255, 0.5),
+      inset 0 0 8px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 0 28px rgba(0, 85, 255, 0.9),
+      0 0 45px rgba(0, 85, 255, 0.4),
+      inset 0 0 12px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px var(--electric-blue);
+  }
+}
+
+.btn-neon-pulse.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  animation-play-state: paused;
+  background: var(--electric-blue-light);
+  border-color: #ffffff;
+  box-shadow: 
+    0 0 30px var(--electric-blue),
+    0 0 60px var(--electric-blue),
+    inset 0 0 16px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 8px #fff, 0 0 18px var(--electric-blue);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-pulse.btn-outline {
+  background: #05050a;
+  border-color: rgba(0, 85, 255, 0.75);
+  animation: neon-breath-outline 3s ease-in-out infinite;
+}
+
+@keyframes neon-breath-outline {
+  0%, 100% {
+    border-color: rgba(0, 85, 255, 0.5);
+    box-shadow: 
+      0 0 8px rgba(0, 85, 255, 0.3),
+      inset 0 0 6px rgba(0, 85, 255, 0.3);
+    text-shadow: 0 0 4px rgba(0, 85, 255, 0.5);
+  }
+  50% {
+    border-color: rgba(0, 136, 255, 1);
+    box-shadow: 
+      0 0 22px rgba(0, 85, 255, 0.85),
+      0 0 40px rgba(0, 85, 255, 0.4),
+      inset 0 0 14px rgba(0, 85, 255, 0.7);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px var(--electric-blue);
+  }
+}
+
+.btn-neon-pulse.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  animation-play-state: paused;
+  border-color: #ffffff;
+  box-shadow: 
+    0 0 25px var(--electric-blue),
+    0 0 50px var(--electric-blue),
+    inset 0 0 16px var(--electric-blue);
+  text-shadow: 0 0 8px #fff, 0 0 18px var(--electric-blue);
+}
+
+.btn-neon-pulse:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 5: Borde Líquido Giratorio (Flow Border)
+   ---------------------------------------------------- */
+.btn-neon-flow {
+  overflow: hidden;
+  background: transparent !important;
+}
+
+/* El contenedor del gradiente giratorio en azul cobalto y cian */
+.btn-neon-flow::before {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 20%,
+    var(--electric-blue) 40%,
+    var(--neon-cyan) 50%,
+    var(--electric-blue) 60%,
+    transparent 80%
+  );
+  animation: rotate-neon 2.5s linear infinite;
+  z-index: -2;
+}
+
+/* Primario con Relleno (Fondo interno con azul eléctrico translúcido) */
+.btn-neon-flow.btn-filled::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: rgba(0, 85, 255, 0.22);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-neon-flow.btn-filled:hover::after {
+  background: rgba(0, 85, 255, 0.42);
+}
+
+/* Secundario sin Relleno (Fondo interno negro opaco) */
+.btn-neon-flow.btn-outline::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #05050a;
+  border-radius: 999px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-neon-flow.btn-outline:hover::after {
+  background: rgba(0, 85, 255, 0.12);
+}
+
+@keyframes rotate-neon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.btn-neon-flow:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 
+    0 0 20px rgba(0, 85, 255, 0.5),
+    0 0 40px rgba(0, 210, 255, 0.25);
+}
+
+.btn-neon-flow:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 6: Láser Interno (Inner Glow)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-inner.btn-filled {
+  background: linear-gradient(135deg, #0033aa, var(--electric-blue));
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 0 18px rgba(255, 255, 255, 0.4),
+    inset 0 0 24px rgba(0, 85, 255, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-neon-inner.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    inset 0 0 22px rgba(255, 255, 255, 0.6),
+    inset 0 0 35px var(--electric-blue),
+    0 0 15px rgba(0, 85, 255, 0.4),
+    0 0 30px rgba(0, 85, 255, 0.2);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-inner.btn-outline {
+  background: #050508;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    inset 0 0 14px rgba(0, 85, 255, 0.75),
+    inset 0 0 28px rgba(0, 85, 255, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-neon-inner.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(0, 85, 255, 0.6);
+  box-shadow: 
+    inset 0 0 24px var(--electric-blue),
+    inset 0 0 48px rgba(0, 85, 255, 0.75),
+    inset 0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 15px rgba(0, 85, 255, 0.3);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.btn-neon-inner:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 7: Neón Híbrido Cyberpunk (Magenta + Azul)
+   ---------------------------------------------------- */
+
+/* Primario con Relleno */
+.btn-neon-cyberpunk.btn-filled {
+  background: linear-gradient(135deg, var(--electric-blue), var(--pagurai-magenta));
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 6px #fff;
+  box-shadow: 
+    -8px 0 24px rgba(0, 85, 255, 0.65),
+    8px 0 24px rgba(231, 33, 117, 0.65),
+    inset 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+.btn-neon-cyberpunk.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    -12px 0 35px rgba(0, 85, 255, 0.95),
+    12px 0 35px rgba(231, 33, 117, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.2),
+    inset 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+/* Secundario sin Relleno */
+.btn-neon-cyberpunk.btn-outline {
+  background: #05050a;
+  border: 1.5px solid rgba(0, 85, 255, 0.5);
+  box-shadow: 
+    -6px 0 18px rgba(0, 85, 255, 0.45),
+    6px 0 18px rgba(231, 33, 117, 0.45),
+    inset 0 0 12px rgba(0, 85, 255, 0.2);
+}
+
+.btn-neon-cyberpunk.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    -10px 0 25px rgba(0, 85, 255, 0.75),
+    10px 0 25px rgba(231, 33, 117, 0.75),
+    0 0 35px rgba(255, 255, 255, 0.25),
+    inset 0 0 16px rgba(231, 33, 117, 0.3);
+  text-shadow: 0 0 6px #fff;
+}
+
+.btn-neon-cyberpunk:active {
+  transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   VARIATION 8: Linterna de Cursor Interactiva
+   ---------------------------------------------------- */
+.btn-neon-interactive {
+  overflow: hidden;
+}
+
+/* Primario con Relleno (Fondo base azul eléctrico translúcido + linterna intensa) */
+.btn-neon-interactive.btn-filled {
+  background: rgba(0, 85, 255, 0.18);
+  border: 1.5px solid rgba(0, 85, 255, 0.6);
+}
+
+.btn-neon-interactive.btn-filled .btn-interactive-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    140px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(0, 85, 255, 0.5) 45%,
+    rgba(0, 85, 255, 0.1) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-neon-interactive.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    0 0 20px rgba(0, 85, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Secundario sin Relleno (Fondo base oscuro + linterna difusa) */
+.btn-neon-interactive.btn-outline {
+  background: #05050c;
+  border: 1.5px solid rgba(0, 85, 255, 0.45);
+}
+
+.btn-neon-interactive.btn-outline .btn-interactive-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    140px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 85, 255, 0.45) 0%,
+    rgba(0, 210, 255, 0.15) 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-neon-interactive.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(0, 85, 255, 0.85);
+  box-shadow: 
+    0 0 20px rgba(0, 85, 255, 0.35),
+    inset 0 0 10px rgba(0, 85, 255, 0.2);
+}
+
+.btn-neon-interactive:hover .btn-interactive-glow {
+  opacity: 1;
+}
+
+.btn-neon-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Back button */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(243, 244, 246, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--electric-blue-light);
+}
+
+.back-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
+}

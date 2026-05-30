@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Showroom de Botones Neón - Pagurai</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="Imagenes-Videos/logo Pagurai Dark.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variations.css">
+</head>
+<body>
+
+  <!-- Dynamic Background Wrapper -->
+  <div id="showroomBg" class="showroom-bg bg-radial"></div>
+
+  <div class="container">
+    <header>
+      <h1>PAGURAI BUTTON LAB</h1>
+      <p>Compara y extrae el código del <strong>Botón Primario (Con Relleno)</strong> y <strong>Botón Secundario (Sin Relleno)</strong> en 8 variaciones de neón eléctrico azul cobalto y cian.</p>
+      
+      <!-- Interactive Background Controls -->
+      <div class="control-bar">
+        <span>Fondo de Prueba:</span>
+        <button type="button" class="btn-ctrl" onclick="changeBg('solid', this)">Negro Sólido</button>
+        <button type="button" class="btn-ctrl active" onclick="changeBg('radial', this)">Degradado Radial</button>
+        <button type="button" class="btn-ctrl" onclick="changeBg('dots', this)">Rejilla de Puntos</button>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- VARIATION 1 -->
+      <section class="card" id="card-1">
+        <div class="card-header">
+          <h2 class="card-title">1. Tubo de Neón Físico <span class="card-badge">Efecto Adjunto</span></h2>
+          <p class="card-desc">Simula un tubo físico de neón encendido con un núcleo ultra-brillante (casi blanco) y una intensa aura en azul cobalto brillante.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-tube">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-tube">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-1', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-1', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-1', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-1', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-1')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-tube btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-tube btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-tube.btn-filled {
+  background: linear-gradient(135deg, #0055FF, #0077ff);
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+  text-shadow: 0 0 5px #fff, 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 8px #fff,
+    0 0 20px #0055FF,
+    0 0 40px #0055FF,
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-tube.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: linear-gradient(135deg, #3388FF, #0099ff);
+  box-shadow: 
+    0 0 15px #fff,
+    0 0 35px #0055FF,
+    0 0 60px #0055FF,
+    0 0 80px rgba(0, 85, 255, 0.5),
+    inset 0 0 12px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 8px #fff, 0 0 15px #0055FF;
+}' 
+            data-css-secondary='.btn-neon-tube.btn-outline {
+  background: #050508;
+  border: 1.5px solid #dbebff;
+  color: #ffffff;
+  text-shadow: 0 0 6px #0055FF;
+  box-shadow: 
+    0 0 6px #fff,
+    0 0 16px #0055FF,
+    0 0 32px #0055FF,
+    inset 0 0 4px #fff,
+    inset 0 0 14px #0055FF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-tube.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    0 0 10px #fff,
+    0 0 25px #0055FF,
+    0 0 50px #0055FF,
+    0 0 70px rgba(0, 85, 255, 0.6),
+    inset 0 0 6px #fff,
+    inset 0 0 20px #0055FF;
+  text-shadow: 0 0 10px #fff, 0 0 20px #0055FF;
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 2 -->
+      <section class="card" id="card-2">
+        <div class="card-header">
+          <h2 class="card-title">2. Glow Atmosférico Difuso</h2>
+          <p class="card-desc">Sombra exterior muy difusa y de gran rango en azul eléctrico, con base opaca oscura para que no se mezcle con el fondo morado.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-ambient">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-ambient">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-2', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-2', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-2', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-2', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-2')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-ambient btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-ambient btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-ambient.btn-filled {
+  background: #0055FF;
+  border: 1.5px solid rgba(0, 210, 255, 0.5);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 85, 255, 0.7),
+    0 0 70px rgba(0, 85, 255, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-ambient.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: #3388FF;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 85, 255, 0.95),
+    0 0 100px rgba(0, 85, 255, 0.55);
+}' 
+            data-css-secondary='.btn-neon-ambient.btn-outline {
+  background: #05050a;
+  border: 1.5px solid #0055FF;
+  box-shadow: 
+    inset 0 0 14px rgba(0, 85, 255, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 85, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-ambient.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.08);
+  border-color: #3388FF;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 85, 255, 0.6),
+    0 10px 25px rgba(0, 0, 0, 0.5),
+    0 0 45px rgba(0, 85, 255, 0.65),
+    0 0 100px rgba(0, 85, 255, 0.3);
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 3 -->
+      <section class="card" id="card-3">
+        <div class="card-header">
+          <h2 class="card-title">3. Neón de Vidrio (Glassmorphic)</h2>
+          <p class="card-desc">Fondo tintado oscuro para neutralizar colores del fondo combinado con alto desenfoque de cristal y borde cobalto/cian.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-glass">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-glass">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-3', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-3', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-3', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-3', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-3')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-glass btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-glass btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-glass.btn-filled {
+  background: rgba(0, 85, 255, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 210, 255, 0.75);
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 85, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-glass.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.5);
+  border-color: #ffffff;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 210, 255, 0.8),
+    0 0 70px rgba(0, 85, 255, 0.4);
+}' 
+            data-css-secondary='.btn-neon-glass.btn-outline {
+  background: rgba(5, 5, 10, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 136, 255, 0.55);
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(0, 85, 255, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-glass.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(0, 85, 255, 0.12);
+  border-color: rgba(0, 210, 255, 0.95);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(0, 85, 255, 0.75),
+    0 0 60px rgba(0, 85, 255, 0.35);
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 4 -->
+      <section class="card" id="card-4">
+        <div class="card-header">
+          <h2 class="card-title">4. Neón Pulsante (Breathing)</h2>
+          <p class="card-desc">El brillo exterior y el texto respiran en intensidad usando la nueva gama cobalto brillante, aislados con base oscura opaca.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-pulse">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-pulse">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-4', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-4', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-4', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-4', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-4')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-pulse btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-pulse btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-pulse.btn-filled {
+  background: #0055FF;
+  border: 1.5px solid rgba(0, 210, 255, 0.8);
+  animation: neon-breath-filled 3s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes neon-breath-filled {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(0, 85, 255, 0.5), inset 0 0 8px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(0, 85, 255, 0.9), 0 0 45px rgba(0, 85, 255, 0.4), inset 0 0 12px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px #0055FF;
+  }
+}
+
+.btn-neon-pulse.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  animation-play-state: paused;
+  background: #3388FF;
+  border-color: #ffffff;
+  box-shadow: 0 0 30px #0055FF, 0 0 60px #0055FF, inset 0 0 16px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 8px #fff, 0 0 18px #0055FF;
+}' 
+            data-css-secondary='.btn-neon-pulse.btn-outline {
+  background: #05050a;
+  border: 1.5px solid rgba(0, 85, 255, 0.75);
+  animation: neon-breath-outline 3s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes neon-breath-outline {
+  0%, 100% {
+    border-color: rgba(0, 85, 255, 0.5);
+    box-shadow: 0 0 8px rgba(0, 85, 255, 0.3), inset 0 0 6px rgba(0, 85, 255, 0.3);
+    text-shadow: 0 0 4px rgba(0, 85, 255, 0.5);
+  }
+  50% {
+    border-color: rgba(0, 136, 255, 1);
+    box-shadow: 0 0 22px rgba(0, 85, 255, 0.85), 0 0 40px rgba(0, 85, 255, 0.4), inset 0 0 14px rgba(0, 85, 255, 0.7);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px #0055FF;
+  }
+}
+
+.btn-neon-pulse.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  animation-play-state: paused;
+  border-color: #ffffff;
+  box-shadow: 0 0 25px #0055FF, 0 0 50px #0055FF, inset 0 0 16px #0055FF;
+  text-shadow: 0 0 8px #fff, 0 0 18px #0055FF;
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 5 -->
+      <section class="card" id="card-5">
+        <div class="card-header">
+          <h2 class="card-title">5. Borde Líquido Giratorio (Flow)</h2>
+          <p class="card-desc">Haz de luz cobalto y cian brillante que gira sobre una base negra sólida para asegurar el contraste de la silueta.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-flow">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-flow">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-5', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-5', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-5', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-5', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-5')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-flow btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-flow btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-flow.btn-filled {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+}
+
+.btn-neon-flow.btn-filled::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: conic-gradient(from 0deg, transparent 20%, #0055FF 40%, #00d2ff 50%, #0055FF 60%, transparent 80%);
+  animation: rotate-neon 2.5s linear infinite;
+  z-index: -2;
+}
+
+.btn-neon-flow.btn-filled::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(0, 85, 255, 0.22);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-neon-flow.btn-filled:hover::after {
+  background: rgba(0, 85, 255, 0.42);
+}
+
+.btn-neon-flow.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.6), 0 0 40px rgba(0, 210, 255, 0.3);
+}
+
+@keyframes rotate-neon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}' 
+            data-css-secondary='.btn-neon-flow.btn-outline {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+}
+
+.btn-neon-flow.btn-outline::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: conic-gradient(from 0deg, transparent 20%, #0055FF 40%, #00d2ff 50%, #0055FF 60%, transparent 80%);
+  animation: rotate-neon 2.5s linear infinite;
+  z-index: -2;
+}
+
+.btn-neon-flow.btn-outline::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #05050a;
+  border-radius: 999px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-neon-flow.btn-outline:hover::after {
+  background: rgba(0, 85, 255, 0.12);
+}
+
+.btn-neon-flow.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.5), 0 0 40px rgba(0, 210, 255, 0.25);
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 6 -->
+      <section class="card" id="card-6">
+        <div class="card-header">
+          <h2 class="card-title">6. Láser Interno (Inner Glow)</h2>
+          <p class="card-desc">Contiene el resplandor de neón en el interior del botón usando sombras inset cobalto sobre una base de alto contraste.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-inner">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-inner">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-6', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-6', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-6', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-6', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-6')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-inner btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-inner btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-inner.btn-filled {
+  background: linear-gradient(135deg, #0033aa, #0055FF);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 0 18px rgba(255, 255, 255, 0.4),
+    inset 0 0 24px rgba(0, 85, 255, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-inner.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    inset 0 0 22px rgba(255, 255, 255, 0.6),
+    inset 0 0 35px #0055FF,
+    0 0 15px rgba(0, 85, 255, 0.4);
+}' 
+            data-css-secondary='.btn-neon-inner.btn-outline {
+  background: #050508;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    inset 0 0 14px rgba(0, 85, 255, 0.75),
+    inset 0 0 28px rgba(0, 85, 255, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-inner.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(0, 85, 255, 0.6);
+  box-shadow: 
+    inset 0 0 24px #0055FF,
+    inset 0 0 48px rgba(0, 85, 255, 0.75),
+    inset 0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 15px rgba(0, 85, 255, 0.3);
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 7 -->
+      <section class="card" id="card-7">
+        <div class="card-header">
+          <h2 class="card-title">7. Neón Híbrido Cyberpunk</h2>
+          <p class="card-desc">Fusión bicolor con la paleta de la marca: resplandor izquierdo en azul cobalto `#0055FF` y derecho en el acento magenta `#E72175`.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-cyberpunk">Botón Primario</button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-cyberpunk">Botón Secundario</button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-7', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-7', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-7', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-7', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-7')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-cyberpunk btn-filled"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-cyberpunk btn-outline"&gt;Quiero aprender a crear vídeos IA así&lt;/button&gt;' 
+            data-css-primary='.btn-neon-cyberpunk.btn-filled {
+  background: linear-gradient(135deg, #0055FF, #E72175);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 6px #ffffff;
+  box-shadow: 
+    -8px 0 24px rgba(0, 85, 255, 0.65),
+    8px 0 24px rgba(231, 33, 117, 0.65),
+    inset 0 0 10px rgba(255, 255, 255, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-cyberpunk.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    -12px 0 35px rgba(0, 85, 255, 0.95),
+    12px 0 35px rgba(231, 33, 117, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.2),
+    inset 0 0 14px rgba(255, 255, 255, 0.4);
+}' 
+            data-css-secondary='.btn-neon-cyberpunk.btn-outline {
+  background: #05050a;
+  border: 1.5px solid rgba(0, 85, 255, 0.5);
+  box-shadow: 
+    -6px 0 18px rgba(0, 85, 255, 0.45),
+    6px 0 18px rgba(231, 33, 117, 0.45),
+    inset 0 0 12px rgba(0, 85, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-cyberpunk.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 
+    -10px 0 25px rgba(0, 85, 255, 0.75),
+    10px 0 25px rgba(231, 33, 117, 0.75),
+    0 0 35px rgba(255, 255, 255, 0.25),
+    inset 0 0 16px rgba(231, 33, 117, 0.3);
+  text-shadow: 0 0 6px #fff;
+}'></pre>
+        </div>
+      </section>
+
+      <!-- VARIATION 8 -->
+      <section class="card" id="card-8">
+        <div class="card-header">
+          <h2 class="card-title">8. Linterna de Cursor Interactiva</h2>
+          <p class="card-desc">Sigue el movimiento del cursor, revelando un haz de luz cobalto/cian en tiempo real debajo de la posición del puntero.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-stage-row">
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-filled btn-neon-interactive">
+                <span class="btn-interactive-glow"></span>
+                Botón Primario
+              </button>
+              <span class="demo-label">Primario (Con Relleno)</span>
+            </div>
+            <div class="demo-item">
+              <button type="button" class="btn-base btn-outline btn-neon-interactive">
+                <span class="btn-interactive-glow"></span>
+                Botón Secundario
+              </button>
+              <span class="demo-label">Secundario (Sin Relleno)</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-inspector">
+          <div class="code-tabs">
+            <div class="code-tab-selectors">
+              <button type="button" class="tab-btn active" onclick="switchTab('card-8', 'html')">HTML</button>
+              <button type="button" class="tab-btn" onclick="switchTab('card-8', 'css')">CSS</button>
+            </div>
+            <div class="code-type-selector">
+              <button type="button" class="type-btn active" onclick="switchType('card-8', 'primary')">Primario</button>
+              <button type="button" class="type-btn" onclick="switchType('card-8', 'secondary')">Secundario</button>
+            </div>
+            <button type="button" class="btn-copy" onclick="copyCode('card-8')">Copiar</button>
+          </div>
+          <pre class="code-content" 
+            data-html-primary='&lt;button type="button" class="vw-cta-btn btn-neon-interactive btn-filled"&gt;
+  &lt;span class="vw-btn-glow"&gt;&lt;/span&gt;
+  Quiero aprender a crear vídeos IA así
+&lt;/button&gt;' 
+            data-html-secondary='&lt;button type="button" class="vw-cta-btn btn-neon-interactive btn-outline"&gt;
+  &lt;span class="vw-btn-glow"&gt;&lt;/span&gt;
+  Quiero aprender a crear vídeos IA así
+&lt;/button&gt;' 
+            data-css-primary='.btn-neon-interactive.btn-filled {
+  background: rgba(0, 85, 255, 0.18);
+  border: 1.5px solid rgba(0, 85, 255, 0.6);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-interactive.btn-filled .vw-btn-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(140px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.35) 0%, rgba(0, 85, 255, 0.5) 45%, rgba(0, 85, 255, 0.1) 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-neon-interactive.btn-filled:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-neon-interactive:hover .vw-btn-glow {
+  opacity: 1;
+}' 
+            data-css-secondary='.btn-neon-interactive.btn-outline {
+  background: #05050c;
+  border: 1.5px solid rgba(0, 85, 255, 0.45);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-neon-interactive.btn-outline .vw-btn-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(140px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 85, 255, 0.45) 0%, rgba(0, 210, 255, 0.15) 45%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-neon-interactive.btn-outline:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(0, 85, 255, 0.85);
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.35), inset 0 0 10px rgba(0, 85, 255, 0.2);
+}
+
+.btn-neon-interactive:hover .vw-btn-glow {
+  opacity: 1;
+}'></pre>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Go Back Link -->
+    <div style="text-align: center;">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+        </svg>
+        Volver a la Landing Principal
+      </a>
+    </div>
+  </div>
+
+  <!-- JavaScript interaction logic -->
+  <script>
+    // Store current active settings per card
+    const cardStates = {};
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.card').forEach(card => {
+        const id = card.id;
+        cardStates[id] = {
+          tab: 'html',       // 'html' or 'css'
+          type: 'primary'    // 'primary' or 'secondary'
+        };
+        updateCodeView(id);
+      });
+
+      // Cursor movement tracking for dynamic glows
+      const interactiveBtns = document.querySelectorAll('.btn-neon-interactive');
+      interactiveBtns.forEach(btn => {
+        btn.addEventListener('pointermove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          btn.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+          btn.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+        });
+      });
+    });
+
+    // Update code viewer text based on state
+    function updateCodeView(cardId) {
+      const card = document.getElementById(cardId);
+      const state = cardStates[cardId];
+      const codePre = card.querySelector('.code-content');
+
+      const dataAttr = `data-${state.tab}-${state.type}`;
+      const code = codePre.getAttribute(dataAttr) || '';
+
+      if (state.tab === 'html') {
+        // Unescape HTML tags
+        codePre.textContent = code
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>');
+      } else {
+        codePre.textContent = code;
+      }
+    }
+
+    // Switch between HTML and CSS code tabs
+    function switchTab(cardId, tabType) {
+      const card = document.getElementById(cardId);
+      const tabBtns = card.querySelectorAll('.tab-btn');
+      
+      cardStates[cardId].tab = tabType;
+
+      tabBtns.forEach(btn => {
+        if (btn.textContent.toLowerCase() === tabType) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      updateCodeView(cardId);
+    }
+
+    // Switch between Primary and Secondary styles
+    function switchType(cardId, buttonType) {
+      const card = document.getElementById(cardId);
+      const typeBtns = card.querySelectorAll('.type-btn');
+
+      cardStates[cardId].type = buttonType;
+
+      typeBtns.forEach(btn => {
+        if (btn.textContent.toLowerCase() === 'primario' && buttonType === 'primary') {
+          btn.classList.add('active');
+        } else if (btn.textContent.toLowerCase() === 'secundario' && buttonType === 'secondary') {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      updateCodeView(cardId);
+    }
+
+    // Change background dynamic styles
+    function changeBg(type, button) {
+      const bg = document.getElementById('showroomBg');
+      bg.className = 'showroom-bg';
+      
+      if (type === 'solid') bg.classList.add('bg-solid');
+      if (type === 'radial') bg.classList.add('bg-radial');
+      if (type === 'dots') bg.classList.add('bg-dots');
+
+      document.querySelectorAll('.btn-ctrl').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      button.classList.add('active');
+    }
+
+    // Copy code from current state to clipboard
+    function copyCode(cardId) {
+      const card = document.getElementById(cardId);
+      const state = cardStates[cardId];
+      const codePre = card.querySelector('.code-content');
+      const copyBtn = card.querySelector('.btn-copy');
+
+      const dataAttr = `data-${state.tab}-${state.type}`;
+      let textToCopy = codePre.getAttribute(dataAttr) || '';
+
+      if (state.tab === 'html') {
+        textToCopy = textToCopy
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>');
+      }
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.style.background = 'rgba(46, 213, 115, 0.25)';
+        copyBtn.style.color = '#2ed573';
+        copyBtn.style.borderColor = 'rgba(46, 213, 115, 0.4)';
+
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+          copyBtn.style.background = '';
+          copyBtn.style.color = '';
+          copyBtn.style.borderColor = '';
+        }, 1800);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
