@@ -635,7 +635,7 @@
           numero_de_telefono: document.getElementById('vw-phone-country').value + ' ' + inputPhone.value.trim(),
           timestamp: new Date().toISOString()
         };
-        localStorage.setItem('videway_ghl_form_submission', JSON.stringify(submissionData));
+        localStorage.setItem('pagurai_form_submission', JSON.stringify(submissionData));
 
         // Display success/loading state
         var submitBtn = modalForm.querySelector('.vw-popup-submit-btn');
@@ -645,7 +645,7 @@
 
         // Redirect based on selected option
         setTimeout(function () {
-          if (selectedVal === 'Aprender a crear vídeos con IA de calidad profesional') {
+          if (selectedVal === 'Reducir costes de producción de mis anuncios') {
             window.location.href = 'https://artista.videway.com/metodo-richard';
           } else {
             window.location.href = 'https://artista.videway.com/video-acceso';
