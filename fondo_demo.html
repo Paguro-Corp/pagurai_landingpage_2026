@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fondo Interactivo Standalone - Pagurai</title>
+  <title>Demostración de Fondo, Header y Cards - Pagurai</title>
+  
+  <!-- Importar Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     /* ==========================================================================
-       1. VARIABLES DE DISEÑO (Personaliza los colores aquí)
+       1. VARIABLES DE DISEÑO (Configuración de Colores y Fuentes)
        ========================================================================== */
     :root {
       --bg-color: #0a0a0f;        /* Color de fondo base ultra oscuro */
-      --accent-rgb: 0, 152, 255;  /* Color de acento de los puntos (RGB) - Azul eléctrico */
+      --bg-card: rgba(18, 18, 26, 0.65); /* Fondo de tarjetas con soporte blur */
+      --accent-rgb: 0, 152, 255;  /* Color de acento de los puntos (RGB) */
+      --accent-color: #0098FF;    /* Azul eléctrico */
+      --pink-neon: #E72175;       /* Rosa neón para detalles */
       
-      /* Colores para las luces difusas de fondo (Glows) */
-      --glow-1: rgba(0, 152, 255, 0.12); /* Brillo superior */
-      --glow-2: rgba(99, 102, 241, 0.08); /* Brillo lateral izquierdo */
-      --glow-3: rgba(0, 152, 255, 0.08);  /* Brillo lateral derecho */
+      /* Brillos radiales difusos (Glows) */
+      --glow-1: rgba(0, 152, 255, 0.12);
+      --glow-2: rgba(99, 102, 241, 0.08);
+      --glow-3: rgba(0, 152, 255, 0.08);
+
+      /* Fuentes */
+      --font-display: 'Oswald', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
     }
 
-    /* Reset básico para visualización de pantalla completa */
+    /* Reset básico */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +43,14 @@
       width: 100%;
       height: 100%;
       background-color: var(--bg-color);
-      overflow-x: hidden; /* Evita scrolls horizontales no deseados */
+      color: #f3f4f6;
+      font-family: var(--font-body);
+      line-height: 1.6;
     }
 
     /* ==========================================================================
-       2. ESTILOS DE CAPAS DE FONDO (Para llevar a tu hoja de estilos CSS)
+       2. CAPAS DE FONDO FIJAS (Quedan siempre detrás)
        ========================================================================== */
-    
-    /* Capa 1: Fondo de color sólido e inmutable */
     .bg-cover {
       position: fixed;
       inset: 0;
@@ -45,7 +59,6 @@
       pointer-events: none;
     }
 
-    /* Capa 2: Acentos y Brillos Radiales Degradados (Aportan profundidad) */
     .bg-glows {
       position: fixed;
       inset: 0;
@@ -57,7 +70,6 @@
         radial-gradient(circle at 85% 45%, var(--glow-3), transparent 28%);
     }
 
-    /* Capa 3: Contenedor del Canvas de la Matriz de Puntos */
     .vw-dot-bg {
       position: fixed;
       inset: 0;
@@ -71,8 +83,6 @@
       display: block;
     }
 
-    /* Capa 4: Degradado de desvanecimiento superior, inferior y central */
-    /* Ayuda a fundir los puntos suavemente con el fondo oscuro */
     .vw-dot-fade {
       position: absolute;
       inset: 0;
@@ -81,16 +91,317 @@
         radial-gradient(ellipse 80% 58% at 50% 45%, transparent 26%, var(--bg-color) 82%),
         linear-gradient(180deg, var(--bg-color) 0%, transparent 14%, transparent 84%, var(--bg-color) 100%);
     }
+
+    /* ==========================================================================
+       3. CONTENEDOR DE CONTENIDO (Scrollable)
+       ========================================================================== */
+    .content-wrapper {
+      position: relative;
+      width: 100%;
+      z-index: 1; /* Por encima de las capas de fondo */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Etiqueta indicadora de sección */
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink-neon);
+      background: rgba(231, 33, 117, 0.12);
+      border: 1px solid rgba(231, 33, 117, 0.25);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* ==========================================================================
+       4. SECCIÓN: HEADER (Cabecera / Barra de Navegación)
+       ========================================================================== */
+    .demo-header {
+      width: 100%;
+      background: rgba(10, 10, 15, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 152, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+      background: linear-gradient(90deg, #fff, var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Tarjeta representativa dentro del Header */
+    .header-card {
+      background: rgba(18, 18, 26, 0.8);
+      border: 1px dashed rgba(0, 152, 255, 0.3);
+      border-radius: 12px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-card span {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(243, 244, 246, 0.8);
+    }
+
+    /* ==========================================================================
+       5. SECCIÓN: BODY / HERO / CARDS (Cuerpo principal de contenido)
+       ========================================================================== */
+    .demo-body {
+      flex: 1;
+      padding: 60px 0;
+    }
+
+    .body-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .body-title {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+      line-height: 1.2;
+      margin-top: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .body-title span {
+      color: var(--accent-color);
+      text-shadow: 0 0 15px rgba(0, 152, 255, 0.35);
+    }
+
+    .body-desc {
+      max-width: 650px;
+      margin: 16px auto 0 auto;
+      color: rgba(243, 244, 246, 0.7);
+      font-size: 16px;
+    }
+
+    /* Contenedor Grid para las tarjetas con Glow */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    /* Tarjeta Glassmorphic con Glow Dinámico */
+    .vw-glow-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 152, 255, 0.15);
+      padding: 36px 30px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      --glow-x: 50%;
+      --glow-y: 50%;
+      transition: transform .35s var(--ease-out), border-color .35s var(--ease-out), box-shadow .35s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Brillo interno radial que sigue el cursor */
+    .vw-glow-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(350px circle at var(--glow-x) var(--glow-y), rgba(0, 152, 255, 0.14), rgba(99, 102, 241, 0.05) 45%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Borde iluminado que sigue el cursor (Masking effect) */
+    .vw-glow-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: radial-gradient(280px circle at var(--glow-x) var(--glow-y), rgba(0, 152, 255, 0.45), rgba(231, 33, 117, 0.25) 50%, transparent 75%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .vw-glow-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 152, 255, 0.35);
+      box-shadow: 0 20px 50px rgba(0, 152, 255, 0.12);
+    }
+
+    .vw-glow-card:hover::before,
+    .vw-glow-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Asegurar que el contenido de la tarjeta esté sobre los brillos */
+    .vw-glow-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .card-text {
+      color: rgba(243, 244, 246, 0.72);
+      font-size: 15px;
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+
+    /* Botón interactivo con brillo premium */
+    .vw-cta-btn {
+      align-self: flex-start;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      color: #ffffff;
+      background: #0055FF;
+      border: 1.5px solid rgba(0, 210, 255, 0.8);
+      padding: 12px 28px;
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      cursor: pointer;
+      transition: all .3s var(--ease-out);
+      animation: neon-breath 3s ease-in-out infinite;
+    }
+
+    .vw-cta-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: #188bf6;
+      border-color: #ffffff;
+      box-shadow: 
+        0 0 20px rgba(0, 85, 255, 0.6),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .vw-cta-btn .vw-btn-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(80px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.4) 0%, rgba(0, 85, 255, 0.6) 50%, transparent 80%);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .vw-cta-btn:hover .vw-btn-glow {
+      opacity: 1;
+    }
+
+    @keyframes neon-breath {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 85, 255, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(0, 85, 255, 0.75), 0 0 35px rgba(0, 85, 255, 0.3);
+      }
+    }
+
+    /* ==========================================================================
+       6. SECCIÓN: FOOTER (Pie de página)
+       ========================================================================== */
+    .demo-footer {
+      background: rgba(8, 8, 12, 0.85);
+      border-top: 1px solid rgba(0, 152, 255, 0.12);
+      padding: 40px 0;
+      margin-top: 80px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+      color: rgba(243, 244, 246, 0.5);
+    }
+
+    .footer-card {
+      background: rgba(18, 18, 26, 0.5);
+      border: 1px solid rgba(0, 152, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(243, 244, 246, 0.4);
+    }
   </style>
 </head>
 <body>
-
-  <!-- ==========================================================================
-       ESTRUCTURA HTML A COPIAR
-       Copia estas 3 etiquetas div y colócalas justo debajo de tu etiqueta <body>.
-       Están diseñadas con posición fija ('fixed') y z-index negativo para quedar
-       automáticamente por debajo de cualquier texto, botón o estructura que pongas.
-       ========================================================================== -->
 
   <!-- Capa 1: Fondo Sólido -->
   <div class="bg-cover"></div>
@@ -104,24 +415,115 @@
     <div class="vw-dot-fade"></div>
   </div>
 
-  <!-- ==========================================================================
-       CÓDIGO JAVASCRIPT A COPIAR
-       Copia este bloque de script y agrégalo al final del body en tu HTML
-       o en un archivo JS independiente de tu nuevo proyecto.
-       ========================================================================== -->
+  <!-- Capa del Contenido Frontal -->
+  <div class="content-wrapper">
+
+    <!-- HEADER DE DEMOSTRACIÓN -->
+    <header class="demo-header">
+      <div class="container header-inner">
+        <div class="header-logo">PAGURAI</div>
+        
+        <!-- Tarjeta de Sección en el Header -->
+        <div class="header-card">
+          <span class="section-badge" style="margin-bottom: 0;">Sección: Header</span>
+          <span>Menú de Ejemplo · Contacto</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CUERPO DE DEMOSTRACIÓN (BODY) -->
+    <main class="demo-body">
+      <div class="container">
+        
+        <div class="body-intro">
+          <span class="section-badge">Sección: Body / Hero</span>
+          <h1 class="body-title">Prueba de <span>Efectos Visuales</span></h1>
+          <p class="body-desc">
+            Pasa el cursor sobre las tarjetas (Cards) inferiores para ver el destello de color que sigue al puntero e interactúa con el borde brillante. El fondo de matriz de puntos parpadea de forma independiente.
+          </p>
+        </div>
+
+        <!-- Rejilla de Cards (Body) -->
+        <div class="card-grid">
+          
+          <!-- Card 1 -->
+          <article class="vw-glow-card">
+            <span class="section-badge">Sección: Body / Card 1</span>
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Efecto Glow Card</h3>
+            <p class="card-text">
+              Esta tarjeta tiene un filtro de desenfoque de fondo y bordes dinámicos que se iluminan al posicionar el puntero del ratón encima.
+            </p>
+            <button type="button" class="vw-cta-btn">
+              PROBAR BOTÓN
+            </button>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="vw-glow-card">
+            <span class="section-badge">Sección: Body / Card 2</span>
+            <div class="card-icon">🧬</div>
+            <h3 class="card-title">Interactividad</h3>
+            <p class="card-text">
+              Los efectos de luz utilizan variables CSS reactivas calcadas mediante JavaScript en tiempo real. Son ligeras y no afectan al rendimiento.
+            </p>
+            <button type="button" class="vw-cta-btn">
+              BOTÓN GLOW
+            </button>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="vw-glow-card">
+            <span class="section-badge">Sección: Body / Card 3</span>
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">Comportamiento</h3>
+            <p class="card-text">
+              El fondo sólido y el canvas de puntos utilizan posición fija (fixed), permitiendo que el contenido se desplace de forma suave sobre ellos.
+            </p>
+            <button type="button" class="vw-cta-btn">
+              ACCIÓN DE MUESTRA
+            </button>
+          </article>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER DE DEMOSTRACIÓN -->
+    <footer class="demo-footer">
+      <div class="container footer-content">
+        <div class="footer-logo">PAGURAI DEMO</div>
+        
+        <!-- Tarjeta de Sección en el Footer -->
+        <div class="footer-card">
+          <span class="section-badge">Sección: Footer</span>
+          <p style="font-size: 14px; color: rgba(243, 244, 246, 0.7); margin-bottom: 8px;">
+            Este es un contenedor ubicado dentro del pie de página que simula la sección de suscripción o enlaces legales.
+          </p>
+          <span class="footer-copy">© 2026 Pagurai LLC. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT DE ANIMACIÓN E INTERACTIVIDAD -->
   <script>
     (function () {
       'use strict';
 
+      /* ==========================================================================
+         A. Matriz de Puntos Interactiva (Canvas Particles)
+         ========================================================================== */
       function createDotMatrix(canvas, parentSection, revealFromCenter) {
         if (!canvas || !parentSection) return;
         var ctx = canvas.getContext('2d');
         if (!ctx) return;
         
-        var GRID = 20; // Separación en píxeles entre cada punto
-        var DOT_R = 1.5; // Radio en píxeles de cada punto
+        var GRID = 20;
+        var DOT_R = 1.5;
         
-        // Obtener el color de acento de las variables CSS de forma dinâmica
         var style = getComputedStyle(document.documentElement);
         var accentString = style.getPropertyValue('--accent-rgb').trim() || '0, 152, 255';
         var ACCENT_COLOR = accentString.split(',').map(Number);
@@ -130,12 +532,10 @@
         var time = 0;
         var raf;
 
-        // Generador pseudoaleatorio estable basado en coordenadas para evitar patrones lineales idénticos
         function hash(x, y) {
           return ((Math.sin(x * 127.1 + y * 311.7) * 43758.5453123) % 1 + 1) % 1;
         }
 
-        // Redimensionamiento adaptativo del canvas respetando la densidad de píxeles (HiDPI / Retina)
         function resize() {
           var dpr = window.devicePixelRatio || 1;
           var rect = parentSection.getBoundingClientRect();
@@ -161,11 +561,10 @@
           }
         }
 
-        // Bucle de renderizado animado con micro-parpadeo orgánico
         function draw() {
           var rect = parentSection.getBoundingClientRect();
           ctx.clearRect(0, 0, rect.width, rect.height);
-          time += 0.016; // Incremento de tiempo aproximado a 60fps
+          time += 0.016;
 
           var cx = rect.width / 2;
           var cy = rect.height / 2;
@@ -173,15 +572,12 @@
 
           for (var i = 0; i < dots.length; i++) {
             var d = dots[i];
-            
-            // Fórmulas trigonométricas para un parpadeo dinámico asíncrono
             var flicker = Math.sin(time * 3.5 + d.seed * 50) * 0.5 + 0.5;
             var phase = Math.sin(time * 1.5 + d.delay * 12) * 0.5 + 0.5;
             var blink = Math.sin(time * 1.8 + d.seed * 100 + d.delay * 60);
             var blinkOn = blink > (d.seed > 0.7 ? -0.4 : 0.1) ? 1 : 0;
             var baseOpacity;
             
-            // Asignación de tres niveles de brillo según la semilla pseudoaleatoria
             if (d.seed > 0.85) {
               baseOpacity = (0.35 + flicker * 0.3) * blinkOn;
             } else if (d.seed > 0.6) {
@@ -192,7 +588,6 @@
             
             var opacity = baseOpacity;
             
-            // Animación de entrada opcional (Revelado radial desde el centro hacia afuera en el inicio)
             if (revealFromCenter) {
               var dist = Math.sqrt(Math.pow(d.x - cx, 2) + Math.pow(d.y - cy, 2));
               var revealThreshold = (dist / maxDist) * 3 + d.delay * 0.8;
@@ -202,9 +597,7 @@
             
             if (opacity < 0.01) continue;
             
-            // Un 8% de los puntos adquieren el color de acento, el resto son blancos
             var rgb = d.seed > 0.92 ? ACCENT_COLOR : [255, 255, 255];
-            
             ctx.beginPath();
             ctx.arc(d.x, d.y, DOT_R, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + opacity + ')';
@@ -213,12 +606,10 @@
           raf = requestAnimationFrame(draw);
         }
 
-        // Inicialización y eventos
         resize();
         draw();
         window.addEventListener('resize', resize);
 
-        // Optimización de rendimiento: Detener animación cuando el fondo no es visible en pantalla
         if ('IntersectionObserver' in window) {
           var active = true;
           var observer = new IntersectionObserver(function (entries) {
@@ -236,9 +627,36 @@
         }
       }
 
-      // Ejecutar inicialización vinculándola al body y activando el efecto de entrada radial
       var canvas = document.getElementById('matrix-canvas');
       createDotMatrix(canvas, document.body, true);
+
+      /* ==========================================================================
+         B. Interactividad de las Tarjetas (Glow Cards)
+         ========================================================================== */
+      document.addEventListener('pointermove', function (e) {
+        document.querySelectorAll('.vw-glow-card').forEach(function (card) {
+          var rect = card.getBoundingClientRect();
+          card.style.setProperty('--glow-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--glow-y', (e.clientY - rect.top) + 'px');
+        });
+      });
+
+      /* ==========================================================================
+         C. Interactividad de los Botones (CTA Buttons)
+         ========================================================================== */
+      document.querySelectorAll('.vw-cta-btn').forEach(function (btn) {
+        if (!btn.querySelector('.vw-btn-glow')) {
+          var glow = document.createElement('span');
+          glow.className = 'vw-btn-glow';
+          btn.insertBefore(glow, btn.firstChild);
+        }
+        btn.addEventListener('pointermove', function (e) {
+          var rect = btn.getBoundingClientRect();
+          btn.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+          btn.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+        });
+      });
+
     })();
   </script>
 </body>
