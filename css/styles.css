@@ -1188,6 +1188,8 @@ body, html {
 #vw-ghl-landing .vw-about-image { position:relative; overflow:hidden; border-radius:24px; aspect-ratio:3 / 4; border:1px solid var(--border); background:linear-gradient(135deg,#0f172a,#111827); }
 #vw-ghl-landing .vw-about-image img { width:100%; height:100%; object-fit:cover; }
 #vw-ghl-landing .vw-about-image::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,var(--bg-deep) 100%); pointer-events:none; }
+#vw-ghl-landing .vw-about-phone-container { position:relative; width:100%; max-width:340px; margin:0 auto; z-index:2; }
+#vw-ghl-landing .vw-about-phone-container::before { content:''; position:absolute; inset:6% -18%; background:radial-gradient(circle, rgba(0,152,255,.24), rgba(0,152,255,.06) 42%, transparent 72%); filter:blur(30px); pointer-events:none; z-index:1; }
 #vw-ghl-landing .vw-about-mobile { display:none; }
 #vw-ghl-landing .vw-about-credentials { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
 #vw-ghl-landing .vw-about-credentials li { display:flex; align-items:center; gap:14px; font-size:.95rem; color:var(--text-secondary); }
@@ -1244,7 +1246,7 @@ body, html {
   #vw-ghl-landing .vw-feature-strip.vw-reverse .vw-container { direction:ltr; }
   #vw-ghl-landing .vw-feature-strip { padding:44px 0; }
   #vw-ghl-landing .vw-feature-number { font-size:5rem; }
-  #vw-ghl-landing .vw-about-image { max-width:390px; }
+  #vw-ghl-landing .vw-about-phone-container { max-width:300px; }
 }
 
 @media (max-width:600px) {
@@ -1285,9 +1287,7 @@ body, html {
   #vw-ghl-landing .vw-about .vw-container { gap:24px; }
   #vw-ghl-landing .vw-about .vw-reveal { text-align:center; }
   #vw-ghl-landing .vw-about-credentials { text-align:left; display:inline-flex; }
-  #vw-ghl-landing .vw-about-image { max-width:120px; margin:0 auto; aspect-ratio:1; border-radius:50%; }
-  #vw-ghl-landing .vw-about-image img,
-  #vw-ghl-landing .vw-about-image::after { border-radius:50%; }
+  #vw-ghl-landing .vw-about-phone-container { max-width:260px; margin:0 auto; }
   #vw-ghl-landing .vw-about-desktop { display:none !important; }
   #vw-ghl-landing .vw-about-mobile { display:block !important; }
   #vw-ghl-landing .vw-faq-question { font-size:1rem; }
@@ -2076,3 +2076,56 @@ body, html {
     max-width: 95%;
   }
 }
+
+/* ===== LANGUAGE SWITCHER STYLES ===== */
+#vw-ghl-landing .vw-lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 152, 255, 0.08);
+  border: 1px solid rgba(0, 152, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+#vw-ghl-landing .vw-lang-btn {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  transition: all 0.3s ease;
+  padding: 2px 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#vw-ghl-landing .vw-lang-btn:hover {
+  color: var(--accent-light);
+}
+
+#vw-ghl-landing .vw-lang-btn.active {
+  color: #fff;
+  background: rgba(0, 152, 255, 0.35);
+  border-radius: 4px;
+}
+
+#vw-ghl-landing .vw-lang-divider {
+  color: rgba(243, 244, 246, 0.15);
+  font-size: 10px;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  #vw-ghl-landing .vw-lang-switcher {
+    margin-right: 8px;
+    padding: 3px 8px;
+  }
+  #vw-ghl-landing .vw-lang-btn {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+}
+
