@@ -1161,18 +1161,48 @@
 
         // Display success/loading state
         var submitBtn = modalForm.querySelector('.vw-popup-submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.style.backgroundColor = '#0098FF';
-        submitBtn.textContent = getTranslation(currentLang, 'form.sending') || 'Sending...';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.style.backgroundColor = '#0098FF';
+          submitBtn.textContent = getTranslation(currentLang, 'form.sending') || 'Sending...';
+        }
 
-        // Redirect based on selected option
-        setTimeout(function () {
+        var redirectUser = function () {
           if (selectedVal === 'Reducir costes de producción de mis anuncios') {
             window.location.href = 'https://artista.pagurai.com/metodo-richard';
           } else {
             window.location.href = 'https://artista.pagurai.com/video-acceso';
           }
-        }, 1200);
+        };
+
+        var webhookUrl = links.webhook || 'https://services.leadconnectorhq.com/hooks/TYLAhPXYPsRbvlmf7L8s/webhook-trigger/4bedb354-75b7-4055-a2ae-a5642fef55e4';
+
+        if (typeof fetch === 'function') {
+          var useTimeout = (typeof AbortController === 'function');
+          var controller = useTimeout ? new AbortController() : null;
+          var timeoutId = controller ? setTimeout(function () { controller.abort(); }, 2000) : null;
+
+          var fetchOptions = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(submissionData)
+          };
+          if (controller) {
+            fetchOptions.signal = controller.signal;
+          }
+
+          fetch(webhookUrl, fetchOptions).then(function () {
+            if (timeoutId) clearTimeout(timeoutId);
+            redirectUser();
+          }).catch(function (err) {
+            console.error('Webhook trigger error:', err);
+            redirectUser();
+          });
+        } else {
+          redirectUser();
+        }
       });
     }
 
