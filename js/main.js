@@ -213,7 +213,9 @@
           submit: "I WANT TO START WITH PAGURAI!",
           policyLink: "Privacy Policy",
           sending: "Sending...",
-          submitted: "Sent!"
+          submitted: "Sent!",
+          successTitle: "Thank you!",
+          successDesc: "Thank you for filling out the form. We invite you to schedule a meeting in the tab that just opened to understand your needs."
         }
       },
       es: {
@@ -422,7 +424,9 @@
           submit: "¡QUIERO EMPEZAR CON PAGURAI!",
           policyLink: "Política de Privacidad",
           sending: "Enviando...",
-          submitted: "Enviado!"
+          submitted: "Enviado!",
+          successTitle: "¡Muchas gracias!",
+          successDesc: "Gracias por diligenciar el formulario. Te invitamos a que agendes un meeting en la pestaña que se acaba de abrir para entender tus necesidades."
         }
       }
     };
@@ -1058,6 +1062,34 @@
         popupOverlay.classList.remove('vw-active');
         document.body.style.overflow = '';
         resetFormErrors();
+
+        // Restore form elements and layout
+        if (modalForm) {
+          modalForm.reset();
+          modalForm.style.display = 'block';
+
+          var progress = modalForm.parentElement.querySelector('.vw-popup-progress-container');
+          if (progress) progress.style.display = 'block';
+
+          var title = modalForm.parentElement.querySelector('.vw-popup-title');
+          if (title) title.style.display = 'block';
+
+          var subtitle = modalForm.parentElement.querySelector('.vw-popup-subtitle');
+          if (subtitle) subtitle.style.display = 'block';
+
+          var policy = modalForm.parentElement.querySelector('.vw-popup-policy');
+          if (policy) policy.style.display = 'block';
+
+          var successBlock = document.getElementById('vw-popup-success');
+          if (successBlock) successBlock.style.display = 'none';
+
+          var submitBtn = modalForm.querySelector('.vw-popup-submit-btn');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.textContent = getTranslation(currentLang, 'form.submit') || 'I WANT TO START WITH PAGURAI!';
+          }
+        }
       }
     }
 
@@ -1072,6 +1104,12 @@
     // Close when close btn is clicked
     if (popupCloseBtn) {
       popupCloseBtn.addEventListener('click', closePopupModal);
+    }
+
+    // Close when success close btn is clicked
+    var successCloseBtn = document.getElementById('vw-success-close-btn');
+    if (successCloseBtn) {
+      successCloseBtn.addEventListener('click', closePopupModal);
     }
 
     // Close when overlay BG is clicked
@@ -1168,10 +1206,30 @@
         }
 
         var redirectUser = function () {
-          if (selectedVal === 'Reducir costes de producción de mis anuncios') {
-            window.location.href = 'https://artista.pagurai.com/metodo-richard';
-          } else {
-            window.location.href = 'https://artista.pagurai.com/video-acceso';
+          // Open Google Calendar in a new tab
+          var calendarUrl = links.calendar || 'https://calendar.app.google/NQYRBfkcy3BSsHdi9';
+          window.open(calendarUrl, '_blank');
+
+          // Hide form layouts
+          var progress = modalForm.parentElement.querySelector('.vw-popup-progress-container');
+          if (progress) progress.style.display = 'none';
+
+          var title = modalForm.parentElement.querySelector('.vw-popup-title');
+          if (title) title.style.display = 'none';
+
+          var subtitle = modalForm.parentElement.querySelector('.vw-popup-subtitle');
+          if (subtitle) subtitle.style.display = 'none';
+
+          modalForm.style.display = 'none';
+
+          var policy = modalForm.parentElement.querySelector('.vw-popup-policy');
+          if (policy) policy.style.display = 'none';
+
+          // Show success thank you message block
+          var successBlock = document.getElementById('vw-popup-success');
+          if (successBlock) {
+            successBlock.style.display = 'block';
+            applyTranslations(currentLang);
           }
         };
 
