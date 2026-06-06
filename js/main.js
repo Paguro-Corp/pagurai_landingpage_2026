@@ -166,7 +166,7 @@
         },
         faq: {
           label: "Frequently Asked Questions",
-          title: "We answer the most common questions",
+          title: "The most common questions",
           q1: "Do I need to record content?",
           a1: "Not necessarily. We can work with your existing product assets and use AI models to generate high-impact ads.",
           q2: "How do you reduce costs by up to 75%?",
@@ -186,11 +186,11 @@
           note: "We will connect you with a real person. No obligation."
         },
         footer: {
-          text1: "Copyright by PAGURAI LLC ™ 2026 | <a data-vw-link=\"privacy\" target=\"_blank\" rel=\"noopener noreferrer\" data-i18n=\"footer.privacyLink\">PRIVACY POLICY</a>",
+          text1: "Copyright by Corporación Paguro SAS ™ 2026 | <a data-vw-link=\"privacy\" target=\"_blank\" rel=\"noopener noreferrer\" data-i18n=\"footer.privacyLink\">PRIVACY POLICY</a>",
           privacyLink: "PRIVACY POLICY",
           text2: "This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of Facebook Inc.",
-          text3: "Pagurai LLC and this opportunity are not affiliated with or endorsed by any company. Earnings and income representations mentioned by Pagurai LLC, its promoters, sponsors, members, or owners are aspirational examples and do not guarantee specific results. Each individual's success depends on various factors, such as their individual capacity, work ethic, business skills, experience, motivation, diligence in applying Pagurai LLC's programs, and external factors like the economy and business risks.",
-          text4: "Pagurai LLC assumes no responsibility for your actions or decisions. The use of our products and services should be based on your own diligence and analysis. By accessing this page or any content from Pagurai LLC, you agree that Pagurai LLC is not liable for any results you obtain using our resources."
+          text3: "Corporación Paguro SAS and this opportunity are not affiliated with or endorsed by any company. Earnings and income representations mentioned by Corporación Paguro SAS, its promoters, sponsors, members, or owners are aspirational examples and do not guarantee specific results. Each individual's success depends on various factors, such as their individual capacity, work ethic, business skills, experience, motivation, diligence in applying Corporación Paguro SAS's programs, and external factors like the economy and business risks.",
+          text4: "Corporación Paguro SAS assumes no responsibility for your actions or decisions. The use of our products and services should be based on your own diligence and analysis. By accessing this page or any content from Corporación Paguro SAS, you agree that Corporación Paguro SAS is not liable for any results you obtain using our resources."
         },
         form: {
           progressLabel: "Progress...",
@@ -395,11 +395,11 @@
           note: "Te pondremos en contacto con una persona real. Sin compromiso."
         },
         footer: {
-          text1: "Copyrights por PAGURAI LLC ™ 2026 | <a data-vw-link=\"privacy\" target=\"_blank\" rel=\"noopener noreferrer\" data-i18n=\"footer.privacyLink\">POLÍTICA DE PRIVACIDAD</a>",
+          text1: "Copyrights por Corporación Paguro SAS ™ 2026 | <a data-vw-link=\"privacy\" target=\"_blank\" rel=\"noopener noreferrer\" data-i18n=\"footer.privacyLink\">POLÍTICA DE PRIVACIDAD</a>",
           privacyLink: "POLÍTICA DE PRIVACIDAD",
           text2: "Esta página no forma parte del sitio web de Facebook ni está afiliada a Facebook Inc. Además, este sitio no está respaldado de ninguna manera por Facebook. FACEBOOK es una marca registrada de Facebook Inc.",
-          text3: "Pagurai LLC y esta formación u oportunidad no están afiliados ni respaldados por ninguna empresa. Las ganancias y representaciones de ingresos mencionadas por Pagurai LLC, sus promotores, patrocinadores, miembros o propietarios son ejemplos aspiracionales y no garantizan resultados específicos. El éxito de cada persona depende de diversos factores, como su capacidad individual, ética laboral, habilidades empresariales, experiencia, motivación, diligencia en la aplicación de los programas de Pagurai LLC, así como de factores externos como la economía y los riesgos asociados a la actividad empresarial.",
-          text4: "Pagurai LLC no asume responsabilidad por tus acciones o decisiones. El uso de nuestros productos y servicios debe basarse en tu propia diligencia y análisis. Al acceder a esta página o cualquier contenido de Pagurai LLC, aceptas que Pagurai LLC no es responsable por los resultados que obtengas al utilizar nuestros recursos."
+          text3: "Corporación Paguro SAS y esta formación u oportunidad no están afiliados ni respaldados por ninguna empresa. Las ganancias y representaciones de ingresos mencionadas por Corporación Paguro SAS, sus promotores, patrocinadores, miembros o propietarios son ejemplos aspiracionales y no garantizan resultados específicos. El éxito de cada persona depende de diversos factores, como su capacidad individual, ética laboral, habilidades empresariales, experiencia, motivación, diligencia en la aplicación de los programas de Corporación Paguro SAS, así como de factores externos como la economía y los riesgos asociados a la actividad empresarial.",
+          text4: "Corporación Paguro SAS no asume responsabilidad por tus acciones o decisiones. El uso de nuestros productos y servicios debe basarse en tu propia diligencia y análisis. Al acceder a esta página o cualquier contenido de Corporación Paguro SAS, aceptas que Corporación Paguro SAS no es responsable por los resultados que obtengas al utilizar nuestros recursos."
         },
         form: {
           progressLabel: "Progreso...",
@@ -551,9 +551,9 @@
       try {
         var p = video.play();
         if (p && p.catch) {
-          p.catch(function () {});
+          p.catch(function () { });
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // Wire MP4 videos with poster fallbacks
@@ -569,7 +569,7 @@
       if (poster) {
         video.setAttribute('poster', poster);
       }
-      
+
       video.muted = true;
       video.defaultMuted = true;
       video.loop = true;
@@ -588,7 +588,7 @@
         }
         try {
           video.load();
-        } catch (e) {}
+        } catch (e) { }
         tryPlayVideo(video);
         video.addEventListener('loadeddata', function () { tryPlayVideo(video); }, { once: true });
         video.addEventListener('canplay', function () { tryPlayVideo(video); }, { once: true });
@@ -875,7 +875,7 @@
           var blink = Math.sin(time * 1.8 + d.seed * 100 + d.delay * 60);
           var blinkOn = blink > (d.seed > 0.7 ? -0.4 : 0.1) ? 1 : 0;
           var baseOpacity;
-          
+
           if (d.seed > 0.85) {
             baseOpacity = (0.35 + flicker * 0.3) * blinkOn;
           } else if (d.seed > 0.6) {
@@ -883,18 +883,18 @@
           } else {
             baseOpacity = (0.04 + flicker * 0.06) * blinkOn;
           }
-          
+
           var opacity = baseOpacity;
-          
+
           if (revealFromCenter) {
             var dist = Math.sqrt(Math.pow(d.x - cx, 2) + Math.pow(d.y - cy, 2));
             var revealThreshold = (dist / maxDist) * 3 + d.delay * 0.8;
             var revealProgress = Math.max(0, Math.min(1, (time * 1.2 - revealThreshold)));
             opacity = baseOpacity * revealProgress;
           }
-          
+
           if (opacity < 0.01) continue;
-          
+
           var rgb = d.seed > 0.92 ? ACCENT : [255, 255, 255];
           ctx.beginPath();
           ctx.arc(d.x, d.y, DOT_R, 0, Math.PI * 2);
@@ -990,13 +990,13 @@
           var alpha = progress < 0.1 ? progress / 0.1 : 1 - Math.pow((progress - 0.1) / 0.9, 2);
           var a = alpha * 0.6;
           if (a < 0.02) continue;
-          
+
           var color = s.color;
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.size * 4, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + (a * 0.08) + ')';
           ctx.fill();
-          
+
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + a + ')';
@@ -1128,7 +1128,7 @@
         var inputTerms = document.getElementById('vw-input-terms');
         if (inputTerms && !inputTerms.checked) {
           inputTerms.style.outline = '2px solid #ef4444';
-          setTimeout(function() { inputTerms.style.outline = ''; }, 2000);
+          setTimeout(function () { inputTerms.style.outline = ''; }, 2000);
           isValid = false;
         }
 
