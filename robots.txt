@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /privacidad.html
+Disallow: /variaciones-botones.html
+Disallow: /fondo_demo.html
+Disallow: /Imagenes-Videos/
+
+Sitemap: https://pagurai.com/sitemap.xml

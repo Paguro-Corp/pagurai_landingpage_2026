@@ -1,4 +1,4 @@
-# Guía de Branding y Estilos Visuales (Pagurai/Videway)
+# Guía de Branding y Estilos Visuales (Pagurai)
 
 Esta guía detalla la paleta de colores, tipografías, efectos interactivos de botones, tarjetas de brillo dinámico y animaciones del proyecto para que puedas replicar exactamente este tema visual premium en otro proyecto.
 

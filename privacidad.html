@@ -4,7 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy | Pagurai</title>
-  
+  <meta name="description" content="Privacy Policy of Pagurai (Corporación Paguro SAS). Learn how we collect, use, and protect your personal information.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pagurai.com/privacidad.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pagurai.com/privacidad.html">
+  <meta property="og:title" content="Privacy Policy | Pagurai">
+  <meta property="og:description" content="Privacy Policy of Pagurai (Corporación Paguro SAS). Learn how we collect, use, and protect your personal information.">
+  <meta property="og:image" content="https://assets.cdn.filesafe.space/cGmvuSk1j04LwxdgBArg/media/69f62b038831cb2c6cbc043a.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Privacy Policy | Pagurai">
+  <meta name="twitter:description" content="Privacy Policy of Pagurai (Corporación Paguro SAS). Learn how we collect, use, and protect your personal information.">
+  <meta name="twitter:image" content="https://assets.cdn.filesafe.space/cGmvuSk1j04LwxdgBArg/media/69f62b038831cb2c6cbc043a.jpg">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Imagenes-Videos/favicom claro_square.png">
   
@@ -701,7 +719,12 @@
     (function() {
       'use strict';
       
-      // Get preferred language from localStorage, defaulting to 'en'
+      // Get preferred language from URL param or localStorage, defaulting to 'en'
+      var urlParams = new URLSearchParams(window.location.search);
+      var urlLang = urlParams.get('lang');
+      if (urlLang && (urlLang === 'en' || urlLang === 'es')) {
+        localStorage.setItem('pagurai_pref_lang', urlLang);
+      }
       var currentLang = localStorage.getItem('pagurai_pref_lang') || 'en';
       
       function applyLang(lang) {
@@ -714,7 +737,28 @@
         
         // Dynamic labels update based on language
         var isEn = (lang === 'en');
-        document.title = isEn ? "Privacy Policy | Pagurai" : "Política de Privacidad | Pagurai";
+        var pageTitle = isEn ? "Privacy Policy | Pagurai" : "Política de Privacidad | Pagurai";
+        var pageDesc = isEn ? "Privacy Policy of Pagurai (Corporación Paguro SAS). Learn how we collect, use, and protect your personal information." : "Política de Privacidad de Pagurai (Corporación Paguro SAS). Conoce cómo recopilamos, usamos y protegemos tu información personal.";
+        
+        document.title = pageTitle;
+        
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', pageDesc);
+        
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+        
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', pageDesc);
+        
+        var ogLocale = document.querySelector('meta[property="og:locale"]');
+        if (ogLocale) ogLocale.setAttribute('content', isEn ? 'en_US' : 'es_ES');
+        
+        var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute('content', pageTitle);
+        
+        var twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDesc) twitterDesc.setAttribute('content', pageDesc);
         
         var navBtn = document.getElementById('privacy-back-nav-btn');
         if (navBtn) {

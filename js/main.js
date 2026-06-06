@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function initVidewayAcademy() {
+  function initPagurai() {
     var root = document.getElementById('vw-ghl-landing');
     if (!root || root.dataset.vwReady === '1') return;
     root.dataset.vwReady = '1';
@@ -427,6 +427,11 @@
       }
     };
 
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
+    if (urlLang && (urlLang === 'en' || urlLang === 'es')) {
+      localStorage.setItem('pagurai_pref_lang', urlLang);
+    }
     var currentLang = localStorage.getItem('pagurai_pref_lang') || 'en';
 
     function getTranslation(lang, key) {
@@ -475,6 +480,8 @@
         if (metaTitle) metaTitle.setAttribute('content', pageTitle);
         var ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+        var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute('content', pageTitle);
       }
 
       var pageDesc = getTranslation(lang, 'meta.description');
@@ -483,6 +490,14 @@
         if (metaDesc) metaDesc.setAttribute('content', pageDesc);
         var ogDesc = document.querySelector('meta[property="og:description"]');
         if (ogDesc) ogDesc.setAttribute('content', pageDesc);
+        var twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDesc) twitterDesc.setAttribute('content', pageDesc);
+      }
+
+      // Update og:locale dynamically
+      var ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogLocale) {
+        ogLocale.setAttribute('content', lang === 'es' ? 'es_ES' : 'en_US');
       }
 
       // Update switcher buttons active state
@@ -1153,9 +1168,9 @@
         // Redirect based on selected option
         setTimeout(function () {
           if (selectedVal === 'Reducir costes de producción de mis anuncios') {
-            window.location.href = 'https://artista.videway.com/metodo-richard';
+            window.location.href = 'https://artista.pagurai.com/metodo-richard';
           } else {
-            window.location.href = 'https://artista.videway.com/video-acceso';
+            window.location.href = 'https://artista.pagurai.com/video-acceso';
           }
         }, 1200);
       });
@@ -1165,8 +1180,8 @@
 
   // Run on page loading
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initVidewayAcademy);
+    document.addEventListener('DOMContentLoaded', initPagurai);
   } else {
-    initVidewayAcademy();
+    initPagurai();
   }
 })();
