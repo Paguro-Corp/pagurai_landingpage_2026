@@ -528,7 +528,7 @@
     // Apply translations on load
     applyTranslations(currentLang);
 
-    var config = window.VW_GHL_CONFIG || {};
+    var config = window.PAGURAI_GHL_CONFIG || {};
     var assets = config.assets || {};
     var links = config.links || {};
     var videos = config.videos || {};
