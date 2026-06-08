@@ -215,7 +215,19 @@
           sending: "Sending...",
           submitted: "Sent!",
           successTitle: "Thank you!",
-          successDesc: "Thank you for filling out the form. We invite you to schedule a meeting in the tab that just opened to understand your needs."
+          successDesc: "Thank you for filling out the form. We invite you to schedule a meeting in the tab that just opened to understand your needs.",
+          phoneCountries: {
+            us: "US (+1)",
+            es: "Spain (+34)",
+            mx: "Mexico (+52)",
+            ar: "Argentina (+54)",
+            co: "Colombia (+57)",
+            cl: "Chile (+56)",
+            pe: "Peru (+51)",
+            ve: "Venezuela (+58)",
+            ec: "Ecuador (+593)",
+            uy: "Uruguay (+598)"
+          }
         }
       },
       es: {
@@ -426,7 +438,19 @@
           sending: "Enviando...",
           submitted: "Enviado!",
           successTitle: "¡Muchas gracias!",
-          successDesc: "Gracias por diligenciar el formulario. Te invitamos a que agendes un meeting en la pestaña que se acaba de abrir para entender tus necesidades."
+          successDesc: "Gracias por diligenciar el formulario. Te invitamos a que agendes un meeting en la pestaña que se acaba de abrir para entender tus necesidades.",
+          phoneCountries: {
+            us: "EE. UU. (+1)",
+            es: "España (+34)",
+            mx: "México (+52)",
+            ar: "Argentina (+54)",
+            co: "Colombia (+57)",
+            cl: "Chile (+56)",
+            pe: "Perú (+51)",
+            ve: "Venezuela (+58)",
+            ec: "Ecuador (+593)",
+            uy: "Uruguay (+598)"
+          }
         }
       }
     };
