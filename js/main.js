@@ -515,6 +515,15 @@
       if (submitBtn && !submitBtn.disabled) {
         submitBtn.textContent = getTranslation(lang, 'form.submit') || 'I WANT TO START WITH PAGURAI!';
       }
+
+      // Re-trigger animation on hero accent lines after translation is applied
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.querySelectorAll('.vw-hero-accent-line').forEach(function (el) {
+            el.classList.add('vw-animated');
+          });
+        });
+      });
     }
 
     // Initialize switcher buttons listeners
