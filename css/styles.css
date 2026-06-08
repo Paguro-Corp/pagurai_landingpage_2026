@@ -11,7 +11,7 @@
   --secondary: #188bf6;
   --white: #ffffff;
   --gray: #cbd5e0;
-  --black: #000000;
+  --black: #000511;
   --red: #e93d3d;
   --orange: #f6ad55;
   --yellow: #faf089;
@@ -123,7 +123,7 @@ body, html {
 #vw-ghl-landing * { box-sizing: border-box; }
 
 #vw-ghl-landing {
-  --bg-deep:#0a0a0f;
+  --bg-deep:#000511;
   --bg:#12121a;
   --bg-elevated:#1a1a2e;
   --bg-soft:#101822;
