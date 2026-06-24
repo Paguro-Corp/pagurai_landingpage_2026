@@ -129,24 +129,7 @@
           cta: '<span class="vw-btn-glow"></span>I WANT TO CUT MY COSTS AND SELL MORE',
           note: "Leave us your details. We will respond in less than 24 hours."
         },
-        services: {
-          label: "Our Services",
-          title: 'Creative services tailored to <span class="vw-accent">your sales volume</span>',
-          subtitle: "Our creative services and packages are designed to help you sell more. Choose the option that best fits the volume and speed of ad testing your brand needs.",
-          tier1Label: "Option 1",
-          tier1Name: "One-Off Creatives",
-          tier1Desc: "Product videos and short hook ads ideal for product launches or specific seasonal campaigns.",
-          tier2BadgeFull: "MOST POPULAR",
-          tier2BadgeShort: "POPULAR",
-          tier2Label: "Option 2",
-          tier2Name: "Creative Retainers",
-          tier2Desc: "Monthly packages for ecommerce brands that need constant volume, speed, and ongoing creative concepts.",
-          tier3Label: "Option 3",
-          tier3Name: "AI Direction",
-          tier3Desc: "Creative direction, full high-impact campaigns, massive variant management, and high-level advertising strategy.",
-          cta: '<span class="vw-btn-glow"></span>I WANT TO START TODAY',
-          ctaNote: "Indicative prices based on product catalog complexity and monthly ad volume."
-        },
+
         stats: {
           label: "Results",
           title: 'It\'s not just content, <span class="vw-accent">it\'s content that sells.</span>',
@@ -352,24 +335,7 @@
           cta: '<span class="vw-btn-glow"></span>QUIERO REDUCIR MIS COSTOS Y VENDER MÁS',
           note: "Déjanos tus datos. Te responderemos en menos de 24 horas."
         },
-        services: {
-          label: "Nuestros Servicios",
-          title: 'Servicios creativos adaptados a <span class="vw-accent">tu volumen de venta</span>',
-          subtitle: "Nuestros servicios y paquetes creativos están diseñados para ayudarte a vender más. Elige la opción que mejor se adapte al volumen y velocidad de ad testing que requiere tu marca.",
-          tier1Label: "Opción 1",
-          tier1Name: "Piezas Puntuales",
-          tier1Desc: "Videos de producto y anuncios de gancho corto ideales para lanzamientos de producto o campañas específicas de temporada.",
-          tier2BadgeFull: "MÁS SOLICITADO",
-          tier2BadgeShort: "POPULAR",
-          tier2Label: "Opción 2",
-          tier2Name: "Retainers Creativos",
-          tier2Desc: "Paquetes mensuales para marcas de ecommerce que necesitan volumen constante, velocidad y propuestas creativas continuas.",
-          tier3Label: "Opción 3",
-          tier3Name: "Dirección IA",
-          tier3Desc: "Dirección creativa, campañas completas de gran impacto, gestión de variantes masivas y estrategia publicitaria de alto nivel.",
-          cta: '<span class="vw-btn-glow"></span>QUIERO EMPEZAR HOY',
-          ctaNote: "Precios indicativos según la complejidad del catálogo de productos y volumen de anuncios mensuales."
-        },
+
         stats: {
           label: "Resultados",
           title: 'No es solo contenido, <span class="vw-accent">es contenido que vende.</span>',
